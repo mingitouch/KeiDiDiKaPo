@@ -1,0 +1,3 @@
+#!bin/sh
+
+cat all | sed 's/<.*>//' | sed 's/&amp;/&/g' | sed 's/&lt;/</g' | sed 's/&gt;/>/g' | sed 's/<ref[^<]*<\/ref>//g' | sed 's/<[^>]*>//g' | sed 's/\[http:[^] ]*/[/g' | sed 's/\|thumb//ig' | sed 's/\|left//ig' | sed 's/\|right//ig' | sed 's/\|\d+px//ig' | sed 's/\[\[image:[^\[\]]*\|//ig' | sed 's/\[\[category:([^|\]]*)[^]]*\]\]/[[$1]]/ig' | sed 's/\[\[[a-z\-]*:[^\]]*\]\]//g' | sed 's/\[\[[^\|\]]*\|/[[/g' | sed 's/{{[^}]*}}//g' | sed 's/{[^}]*}//g' | sed 's/\[//g' | sed 's/\]//g' | sed 's/&[^;]*;/ /g' | sed 's/0/ zero /g' | sed 's/1/ one /g' | sed 's/2/ two /g' | sed 's/3/ three /g' | sed 's/4/ four /g' | sed 's/5/ five /g' | sed 's/6/ six /g' | sed 's/7/ seven /g' | sed 's/8/ eight /g' | sed 's/9/ nine /g' | sed "s/[\.-\/!\%\"']//g" | tr '[A-Z]' '[a-z]' > newAll
